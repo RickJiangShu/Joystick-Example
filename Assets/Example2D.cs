@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Example : MonoBehaviour {
+public class Example2D : MonoBehaviour {
 
     public Joystick joystick;
+
+    public Transform target;
+    public float speed = 5.0f;
 
 	// Use this for initialization
 	void Start () {
@@ -16,8 +19,14 @@ public class Example : MonoBehaviour {
 		
 	}
 
-    private void OnJoystickMove(float angle360, float power)
+    private void OnJoystickMove(JoystickData data)
     {
+        float mx = Mathf.Cos(data.radians) * speed * Time.deltaTime * data.power;
+        float my = Mathf.Sin(data.radians) * speed * Time.deltaTime * data.power;
+
+        target.Translate(mx, my, 0);
+
+        /*
         if (angle360 >= 45 && angle360 < 135)
         {
             print("UP");
@@ -34,6 +43,7 @@ public class Example : MonoBehaviour {
         {
             print("Right");
         }
+         */
 
        // print(angle360);
     }
