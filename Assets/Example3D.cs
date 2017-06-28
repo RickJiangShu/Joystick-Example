@@ -21,7 +21,6 @@ public class Example3D : MonoBehaviour {
     {
         float mx = Mathf.Cos(data.radians) * speed * Time.deltaTime * data.power;
         float mz = Mathf.Sin(data.radians) * speed * Time.deltaTime * data.power;
-
-        target.Translate(mx, 0, mz);
+        target.transform.Translate(mx, 0, mz);
     }
 }
