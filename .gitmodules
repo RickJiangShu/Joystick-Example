@@ -1,0 +1,3 @@
+[submodule "Assets/Joystick"]
+	path = Assets/Joystick
+	url = git@github.com:RickJiangShu/Joystick.git
